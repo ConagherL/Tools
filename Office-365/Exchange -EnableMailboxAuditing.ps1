@@ -4,7 +4,7 @@
 # Twitter: @conagherL
 # Date: 4/25/2018
 #-----------------------------------------------------------------------------------
-# Enable Mailbox Auditing for Office 365 Users
+# Enable Mailbox Auditing for Office 365 Users using a Azure Automation Account
 #-----------------------------------------------------------------------------------
 
 
