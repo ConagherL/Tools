@@ -96,7 +96,7 @@ function Show-ConnectWithModernAuth-v2-5-2-Keep_Open_psf {
 		
 		Write-Host "Running the script to Connect to Exchange Online"
 		
-		Import-Module $((Get-ChildItem -Path $($env:LOCALAPPDATA + "\Apps\2.0\") -Filter Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse).FullName | ?{ $_ -notmatch "_none_" } | select -First 1)
+		Import-Module $((Get-ChildItem -Path $($env:LOCALAPPDATA + "\Apps\2.0\") -Filter Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse).FullName | Where-Object{ $_ -notmatch "_none_" } | select-object -First 1)
 		$EXOSession = New-ExoPSSession -UserPrincipalName $UPN
 		Import-PSSession $EXOSession -AllowClobber
 		
@@ -210,7 +210,7 @@ function Show-ConnectWithModernAuth-v2-5-2-Keep_Open_psf {
 		#TODO: Place custom script here
 		Write-Host "Running the script to Connect to Security and Compliance Center"
 		
-		Import-Module $((Get-ChildItem -Path $($env:LOCALAPPDATA + "\Apps\2.0\") -Filter Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse).FullName | ?{ $_ -notmatch "_none_" } | select -First 1)
+		Import-Module $((Get-ChildItem -Path $($env:LOCALAPPDATA + "\Apps\2.0\") -Filter Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse).FullName | Where-Object{ $_ -notmatch "_none_" } | Select-Object -First 1)
 		$MFCCPSSession = New-ExoPSSession -ConnectionUri 'https://ps.compliance.protection.outlook.com/PowerShell-LiveId' -UserPrincipalName $UPN
 		Import-PSSession $MFCCPSSession -AllowClobber
 		
