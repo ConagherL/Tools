@@ -4,7 +4,7 @@
 # Twitter: @conagherL
 # Date: 6/13/2018
 #-----------------------------------------------------------------------------------
-# Export MFA configuration of each user. MFA column may be blank if condtional access is used instead of turing on MFA directly in Azure
+# Export MFA configuration of each user. MFA column may be blank if condtional access is used instead of turning on MFA directly in Azure
 #-----------------------------------------------------------------------------------
 
 #Connect to Azure AD
