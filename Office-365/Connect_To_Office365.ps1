@@ -40,7 +40,7 @@ switch ($opt)
 
 #  administrative user credentials 
 
-$user = “conagher.lepley@ecacolleges.com”
+$user = “POPULATE”
 
 # Display authentication pop out windows
 
