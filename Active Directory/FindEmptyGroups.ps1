@@ -3,8 +3,6 @@
 # This will be groups where the member attribute is empty, and also where
 # no user or computer has the group designated as their primary group.
 # You can select to search for all empty groups, or only empty security groups.
-# Author: Richard L. Mueller
-# Version 1.0 - November 27, 2016
 
 # Specify the supported parameters.
 Param(
