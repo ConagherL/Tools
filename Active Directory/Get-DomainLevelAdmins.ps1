@@ -1,15 +1,3 @@
-﻿<#
-NAME: Get-DomainLevelAdmins.ps1
-AUTHOR: Sean Metcalf	
-AUTHOR EMAIL: SeanMetcalf@MetcorpConsulting.com
-CREATION DATE: 3/01/2013
-LAST MODIFIED DATE: 03/01/2013
-LAST MODIFIED BY: Sean Metcalf
-INTERNAL VERSION: 01.13.03.01.21
-RELEASE VERSION: 0.1.0
-#>
-
-
 ###############################
 # Set Environmental Variables #
 ###############################
