@@ -92,6 +92,6 @@ $saveChangesResult = $apps.SaveChanges()
 
 read-host ‘Press enter key to continue . . .’
 
-"installation completed"
+"installation completed......"
 
 Pause
