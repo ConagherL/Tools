@@ -2,7 +2,7 @@
 # PowerShell Version 2 script to find all empty groups in the domain.
 # This will be groups where the member attribute is empty, and also where
 # no user or computer has the group designated as their primary group.
-# You can select to search for all empty groups, or only empty security groups.
+# https://granadacoder.wordpress.com/2012/08/02/create-a-com-application-with-powershell/
 
 $myCredentials = Get-Credential
 $serviceName = "FAKE_SERVICE_DELETE_ME" 
