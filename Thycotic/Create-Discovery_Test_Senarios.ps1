@@ -21,7 +21,6 @@ Allow a administrator to creates these functions to be dicovered by Secret Serve
 # https://granadacoder.wordpress.com/2012/08/02/create-a-com-application-with-powershell/
 
 $myCredentials = Get-Credential
-$UserName = "thy\clepley"
 $SecurePassword = $password = Read-Host -AsSecureString
 $Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
 $Password = $Credentials.GetNetworkCredential().Password 
@@ -54,7 +53,7 @@ Start-Service -Name $serviceName
 Get-Service $serviceName
 
 # Creating a Scheduled Task
-Register-ScheduledTask -Action $taskAction -Trigger $taskTrigger -TaskName $taskName -Description $taskDescription -User "thy\clepley" -Password $Password
+Register-ScheduledTask -Action $taskAction -Trigger $taskTrigger -TaskName $taskName -Description $taskDescription -User "" -Password $Password
 
 # Creating a Application Pool
 
