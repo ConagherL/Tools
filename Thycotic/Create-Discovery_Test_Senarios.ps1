@@ -1,3 +1,19 @@
+<#
+.SYNOPSIS
+Creates Application pool, com+ objects/applications, Windows Service, and Scheduled tasks to be used in conjunction with Thyopcitic Secret Server.
+Allow a administrator to creates these functions to be dicovered by Secret Server. Recommended approach is to use in a DEV/DEMO enviroment as you learn the product and capability
+
+.DESCRIPTION
+
+.PARAMETER
+.PARAMETER
+.INPUTS
+.OUTPUTS
+.EXAMPLE
+.EXAMPLE
+#>
+
+
 # Create-Discovery_Test_Senario.ps1
 # PowerShell Version 2 script to find all empty groups in the domain.
 # This will be groups where the member attribute is empty, and also where
@@ -5,6 +21,10 @@
 # https://granadacoder.wordpress.com/2012/08/02/create-a-com-application-with-powershell/
 
 $myCredentials = Get-Credential
+$UserName = "thy\clepley"
+$SecurePassword = $password = Read-Host -AsSecureString
+$Credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
+$Password = $Credentials.GetNetworkCredential().Password 
 $serviceName = "FAKE_SERVICE_DELETE_ME" 
 $serviceDisplayName = "Discovery Demo" 
 $serviceDescription = "Secret Server Discovery Example" 
@@ -34,7 +54,7 @@ Start-Service -Name $serviceName
 Get-Service $serviceName
 
 # Creating a Scheduled Task
-Register-ScheduledTask -Action $taskAction -Trigger $taskTrigger -TaskName $taskName -Description $taskDescription
+Register-ScheduledTask -Action $taskAction -Trigger $taskTrigger -TaskName $taskName -Description $taskDescription -User "thy\clepley" -Password $Password
 
 # Creating a Application Pool
 
