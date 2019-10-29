@@ -1,0 +1,14 @@
+function Check-SSWebAuthConfig ($SiteName="Default Web Site",$AppName = "SecretServer")
+{
+$paths = "","Launchers","webservices","rdp","winauthwebservices"
+$AuthMethods = "anonymousAuthentication","basicAuthentication","digestAuthentication","windowsAuthentication","formsauthentication"
+foreach ($path in $paths){
+    $fullPath = "$SiteName\$AppName\$path" -replace "\\","\"
+    foreach ($authMethod in $AuthMethods){
+        get-WebConfigurationProperty -Filter "/system.webServer/security/authentication/$authMethod" -PSPath "IIS:\Sites\$fullPath" -Name enabled | select @{N="Path";E={$fullpath}},@{N="Type";E={$_.ItemXPath -replace "/system.webServer/security/authentication/","" -replace "Auth"," Auth"}},@{N="Enabled";E={$_.value}}
+        }
+
+    }
+}
+
+Check-SSWebAuthConfig
