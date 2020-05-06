@@ -5,7 +5,7 @@
 $OUPath = "OU=MIGRATION,DC=CONTOSO,DC=LOCAL"
 $Filepath = "C:\temp"
 
-# Ad computers
+# AD Computers
 Get-ADComputer -Filter * -Searchbase $OUPath -Properties ipv4Address,OperatingSystem,operatingSystemVersion,mS-DS-ConsistencyGuid,LastLogonDate,LastLogonTimeStamp,description,whenCreated,distinguishedName  | 
 Select-Object Name, ipv4*, 
 OperatingSystem,operatingSystemVersion,mS-DS-ConsistencyGuid,LastLogonDate,Description,@{Name="LastLogonStamp"; Expression={[DateTime]::FromFileTime($_.lastLogonTimestamp)}},WhenCreated,distinguishedName |
@@ -13,7 +13,7 @@ OperatingSystem,operatingSystemVersion,mS-DS-ConsistencyGuid,LastLogonDate,Descr
 Export-csv $Filepath\ADcomputers.csv -NoTypeInformation
 
 
-#users
+# AD Users
 
                   Import-module activedirectory
                   $DaTA=@(
@@ -64,12 +64,12 @@ Get-ADUser  -filter * -Searchbase $OUPath -Properties * |
                   Export-Csv -Path $Filepath\adusers.csv -NoTypeInformation       
         
         
-        #OrganizationalUnits
+        # AD OrganizationalUnits
         
         Get-ADOrganizationalUnit -filter * -SearchBase $OUPath | Select-Object Name,DistinguishedName,Description | 
         Export-csv -path $Filepath\ADOrganizationalUnits.csv -NoTypeInformation
         
-        # contacts
+        # AD Contacts
         Get-ADobject  -LDAPfilter "objectClass=contact" -Searchbase $OUPath -Properties mail,Description,Mobile,ipPhone,homePhone,whenCreated,distinguishedName,mail,proxyAddresses | 
         Select-Object name,mail,Description,mobile,ipPhone,homePhone,whenCreated,distinguishedName,mail,proxyAddresses   | 
         Export-csv -path $Filepath\ADcontacts.csv -NoTypeInformation
