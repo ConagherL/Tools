@@ -8,6 +8,7 @@
 # Get-NetIPServerInfo | Format-Table -AutoSize
  
 # .NOTES
+# https://sid-500.com/2018/10/26/retrieve-the-ip-configuration-of-all-windows-servers-with-get-netipserverinfo/
  
 function Get-NetIPServerInfo {
  
