@@ -1,3 +1,5 @@
+---- Report finds all the duplicate secrets in a vault and drops the secrets with the lower ID #. Leaving the duplicates we want to delete in the report.
+
 SELECT  
 	s.SecretID as [SecretID]
 	,f.folderpath as [Folder Path]
